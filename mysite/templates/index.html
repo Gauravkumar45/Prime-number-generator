@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin:0px;
+        }
+        nav{
+            display: flex;
+            justify-content: space-around;
+            background-color: aqua;
+            margin:none;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+<nav>
+    <h1>Prime Nunber Generator</h1>
+</nav>
+<body>
+    <label for="start">Range Start</label>
+    <input id="start" type="text"/><br>
+    <label for="stop">Range Stop</label>
+    <input id="stop" type="text"/>
+    ,<br/>
+    <textarea name="" id="result" cols="30" rows="10"></textarea>
+    <button onclick="calculate()">Calculate</button>
+</body>
+
+<script>
+    function calculate(){
+        prime_numbers=[]
+        const start=document.getElementById("start").value
+        const end=document.getElementById("stop").value
+        //console.log(start)
+        //console.log(end)
+        for(i=start;i<=end;i++){
+            f=0;
+            for(j=1;j<=i;j++){
+                if(i%j==0)
+                f++;
+            }
+            if(f==2)
+            prime_numbers.push(i)
+        }
+        console.log(prime_numbers)
+        var ta=document.getElementById("result")
+        ta.value=prime_numbers.join("\n");
+    }
+</script>
+</html>
